@@ -1,0 +1,755 @@
+/* =========================================================
+   SECTIONS.CSS – erdvės, progos, metų laikai, teritorija,
+   kainos su skaičiuokle, užklausa ir kontaktai
+   ========================================================= */
+
+/* ---------- Erdvės ---------- */
+.spaces {
+  background: var(--paper);
+}
+
+.spaces-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: clamp(30px, 5vw, 70px);
+  align-items: start;
+}
+
+/* Nuotrauka lieka matoma slenkant sąrašą */
+.spaces-figure {
+  position: sticky;
+  top: 100px;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--sand);
+}
+
+.spaces-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.45s var(--ease), transform 0.9s var(--ease);
+}
+
+/* Klasė .is-changing trumpam paslepia nuotrauką keičiant */
+.spaces-figure img.is-changing {
+  opacity: 0;
+  transform: scale(1.03);
+}
+
+.spaces-figure figcaption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 10px 18px;
+  background: var(--paper);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.spaces-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.spaces-list li {
+  border-bottom: 1px solid var(--line);
+}
+
+.spaces-list button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  padding: 16px 0;
+}
+
+.space-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: var(--muted);
+  transition: color 0.3s, transform 0.4s var(--ease);
+}
+
+/* Aprašymas matomas tik aktyviam punktui */
+.space-text {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  transition: max-height 0.45s var(--ease), opacity 0.45s var(--ease), margin 0.45s var(--ease);
+}
+
+.spaces-list li:hover .space-name {
+  color: var(--ink);
+}
+
+.spaces-list li.is-active .space-name {
+  color: var(--ink);
+  transform: translateX(10px);
+}
+
+.spaces-list li.is-active .space-text {
+  max-height: 120px;
+  opacity: 1;
+  margin-top: 6px;
+  padding-left: 10px;
+}
+
+/* ---------- Progos ---------- */
+.occasion-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.occasion {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  color: #fff;
+  background: var(--dusk);
+}
+
+.occasion img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease), opacity 0.6s;
+}
+
+.occasion::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 14, 12, 0.8), rgba(15, 14, 12, 0) 60%);
+}
+
+.occasion-body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 22px;
+}
+
+.occasion h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0;
+}
+
+/* Aprašymas išslenka užvedus pelę */
+.occasion p {
+  font-size: 0.92rem;
+  margin: 0;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s var(--ease), opacity 0.5s var(--ease), margin 0.5s var(--ease);
+}
+
+.occasion:hover img {
+  transform: scale(1.06);
+  opacity: 0.85;
+}
+
+.occasion:hover p {
+  max-height: 140px;
+  opacity: 1;
+  margin-top: 8px;
+}
+
+/* Telefonuose pelės nėra, todėl aprašymas rodomas visada */
+@media (hover: none) {
+  .occasion p {
+    max-height: none;
+    opacity: 1;
+    margin-top: 8px;
+  }
+}
+
+/* ---------- Metų laikai ---------- */
+.seasons {
+  background: var(--sand);
+}
+
+.season-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 36px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+.season-tabs button {
+  position: relative;
+  background: none;
+  border: 0;
+  padding: 10px 0 14px;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--muted);
+  transition: color 0.3s;
+}
+
+.season-tabs button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.4s var(--ease);
+}
+
+.season-tabs button[aria-selected="true"] {
+  color: var(--ink);
+}
+
+.season-tabs button[aria-selected="true"]::after {
+  transform: scaleX(1);
+}
+
+.season-panel {
+  display: none;
+  grid-template-columns: 1fr 2.2fr;
+  gap: clamp(28px, 4vw, 60px);
+  align-items: center;
+}
+
+.season-panel.is-active {
+  display: grid;
+  animation: fadeUp 0.6s var(--ease);
+}
+
+.season-text h3 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-bottom: 0.5em;
+}
+
+.season-text p {
+  color: var(--muted);
+}
+
+/* Trys nuotraukos: viena didelė, dvi mažesnės */
+.season-photos {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+  height: clamp(340px, 42vw, 520px);
+}
+
+.season-photos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.season-photos img:first-child {
+  grid-row: span 2;
+}
+
+/* ---------- Teritorija ---------- */
+.estate {
+  position: relative;
+  padding: var(--section-space) 0;
+  overflow: hidden;
+}
+
+/* Fonas juda lėčiau nei puslapis (paralaksas) – js/main.js */
+.estate-bg {
+  position: absolute;
+  inset: -12% 0;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+}
+
+.estate-inner {
+  position: relative;
+}
+
+.estate-card {
+  max-width: 580px;
+  background: var(--paper);
+  padding: clamp(28px, 5vw, 56px);
+}
+
+.estate-card p:not(.eyebrow) {
+  color: var(--muted);
+}
+
+.amenities {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.amenities h3 {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--gold-dark);
+  margin-bottom: 8px;
+}
+
+.amenities ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.amenities li {
+  padding: 7px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
+/* ---------- Kainos ---------- */
+.prices-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: start;
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0 24px;
+}
+
+.price-table th,
+.price-table td {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  font-weight: 400;
+}
+
+.price-table td {
+  text-align: right;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.98rem;
+  white-space: nowrap;
+  padding-left: 16px;
+}
+
+/* ---------- Skaičiuoklė ---------- */
+.calculator {
+  background: var(--dusk);
+  color: #fff;
+  padding: clamp(26px, 4vw, 44px);
+}
+
+.calculator h3 {
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+}
+
+.calculator fieldset {
+  border: 0;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+.calculator legend,
+.stepper-label {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 8px;
+}
+
+/* Radijo mygtukai atrodo kaip jungikliai */
+.choice {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.choice label,
+.extras label {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.choice input {
+  position: absolute;
+  opacity: 0;
+}
+
+.choice label {
+  padding: 11px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  text-align: center;
+  font-size: 0.93rem;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.choice label:has(input:checked) {
+  background: var(--ivory);
+  border-color: var(--ivory);
+  color: var(--ink);
+}
+
+.choice label:has(input:focus-visible) {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Išjungtas pasirinkimas (poilsiui laikotarpis nesvarbus) */
+.choice.is-disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.stepper .stepper-label {
+  margin: 0;
+}
+
+.stepper-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.stepper-controls button {
+  width: 38px;
+  height: 38px;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.stepper-controls button:hover {
+  border-color: #fff;
+}
+
+.stepper-controls output {
+  min-width: 44px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+}
+
+.extras {
+  display: flex;
+  gap: 26px;
+}
+
+.extras input {
+  accent-color: var(--gold);
+  margin-right: 6px;
+}
+
+.calc-result {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 20px;
+  margin-bottom: 22px;
+}
+
+.calc-result span {
+  display: block;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.calc-result strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  line-height: 1.2;
+}
+
+.calc-result small {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.calculator .btn {
+  background: var(--ivory);
+  color: var(--ink);
+  border-color: var(--ivory);
+}
+
+.calculator .btn:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+
+/* ---------- Užklausa ---------- */
+.inquiry {
+  background: var(--paper);
+}
+
+.inquiry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: start;
+}
+
+.inquiry-intro > p:not(.eyebrow) {
+  color: var(--muted);
+}
+
+.rules {
+  margin: 28px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.rules div {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.93rem;
+}
+
+.rules dt {
+  color: var(--gold-dark);
+}
+
+.rules dd {
+  margin: 0;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.field {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.field span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+/* Laukeliai – tik apatinė linija */
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(31, 29, 26, 0.3);
+  border-radius: 0;
+  background: transparent;
+  font: inherit;
+  color: var(--ink);
+  transition: border-color 0.3s;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-bottom-color: var(--gold);
+}
+
+/* Klaidingai užpildytas laukelis */
+.field.has-error input {
+  border-bottom-color: #a4412f;
+}
+
+.form-error {
+  color: #a4412f;
+  font-size: 0.92rem;
+}
+
+.form-success {
+  margin-top: 18px;
+  color: var(--olive);
+}
+
+/* ---------- Kontaktai ---------- */
+.contacts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: clamp(40px, 6vw, 90px);
+}
+
+.contact-block {
+  margin-bottom: 18px;
+}
+
+.contact-block h3 {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--gold-dark);
+  margin-bottom: 2px;
+}
+
+.contact-block p {
+  margin: 0;
+}
+
+.contact-block a {
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.3s;
+}
+
+.contact-block a:hover {
+  border-color: var(--gold);
+}
+
+.distances {
+  list-style: none;
+  margin: 28px 0 14px;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.distances li {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
+.distances li span:last-child {
+  color: var(--muted);
+}
+
+.map-wrap {
+  position: relative;
+  min-height: 460px;
+  background: var(--sand);
+}
+
+.map-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(0.35) sepia(0.12);
+}
+
+.map-link {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  background: var(--ink);
+  color: var(--ivory);
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.map-link:hover {
+  background: var(--gold-dark);
+}
+
+/* ---------- Prisitaikymas prie ekranų ---------- */
+@media (max-width: 1000px) {
+  .occasion-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .spaces-grid,
+  .prices-grid,
+  .inquiry-grid,
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spaces-figure {
+    position: relative;
+    top: 0;
+  }
+
+  .season-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .map-wrap {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 560px) {
+  .occasion-row {
+    grid-template-columns: 1fr;
+  }
+
+  .occasion {
+    aspect-ratio: 4 / 3;
+  }
+
+  .season-photos {
+    height: 420px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1.4fr 1fr;
+  }
+
+  .season-photos img:first-child {
+    grid-row: auto;
+    grid-column: span 2;
+  }
+
+  .amenities,
+  .field-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .amenities {
+    gap: 20px;
+  }
+
+  .rules div {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .season-tabs {
+    gap: 4px 22px;
+  }
+
+  .season-tabs button {
+    font-size: 1.3rem;
+  }
+}

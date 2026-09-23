@@ -1,0 +1,182 @@
+/* =========================================================
+   BASE.CSS – spalvos, šriftai, bendros taisyklės ir mygtukai
+   Spalvos paimtos iš nuotraukų: dramblio kaulo balustrados,
+   tamsus damastas, senas auksas, tvenkinio žaluma, vakaro mėlyna.
+   ========================================================= */
+
+:root {
+  /* Spalvos */
+  --ivory: #f6f1e8;       /* pagrindinis fonas */
+  --paper: #fbf8f3;       /* šviesesnis fonas kortelėms */
+  --sand: #ece4d6;        /* atskiriančių sekcijų fonas */
+  --ink: #1f1d1a;         /* pagrindinis tekstas */
+  --muted: #6b6459;       /* antraeilis tekstas */
+  --gold: #a07e4a;        /* akcentas, nuorodos */
+  --gold-dark: #7f6237;
+  --olive: #4f5541;       /* tvenkinio žaluma */
+  --dusk: #1c2230;        /* vakaro mėlyna tamsioms sekcijoms */
+  --line: rgba(31, 29, 26, 0.14);
+
+  /* Šriftai */
+  --font-display: "Bodoni Moda", Georgia, serif;
+  --font-body: "Manrope", "Segoe UI", Arial, sans-serif;
+
+  /* Tarpai ir kiti dydžiai */
+  --container: 1200px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --section-space: clamp(72px, 10vw, 140px);
+  --radius: 2px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Paprastas „reset“ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* kad antraštė neuždengtų sekcijos pradžios */
+}
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+/* Bendras turinio plotis */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Sekcijų tarpai */
+.section {
+  padding: var(--section-space) 0;
+}
+
+/* Maža kursyvinė eilutė virš antraštės */
+.eyebrow {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--gold);
+  margin-bottom: 0.4em;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  margin-bottom: 0.5em;
+}
+
+.section-head {
+  max-width: 640px;
+  margin-bottom: clamp(36px, 5vw, 60px);
+}
+
+.section-intro {
+  color: var(--muted);
+}
+
+.lead {
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+
+.note {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* ---------- Mygtukai ---------- */
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--ivory);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: background 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.btn:hover {
+  background: var(--gold-dark);
+  border-color: var(--gold-dark);
+}
+
+.btn-small {
+  padding: 9px 20px;
+  font-size: 0.88rem;
+}
+
+/* Šviesus mygtukas ant tamsios nuotraukos */
+.btn-light {
+  background: var(--ivory);
+  border-color: var(--ivory);
+  color: var(--ink);
+}
+
+.btn-light:hover {
+  background: transparent;
+  color: var(--ivory);
+  border-color: var(--ivory);
+}
+
+/* Permatomas mygtukas ant nuotraukos */
+.btn-ghost-light {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+}
+
+.btn-ghost-light:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+}
+
+/* Klaviatūros fokusas visur matomas */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}

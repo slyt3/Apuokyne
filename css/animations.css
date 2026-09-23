@@ -1,0 +1,66 @@
+/* =========================================================
+   ANIMATIONS.CSS – įsirodymo efektai slenkant ir judesio nustatymai
+   ========================================================= */
+
+/* Elementai su .reveal pasirodo, kai js/main.js prideda .is-visible */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Antras elementas pasirodo šiek tiek vėliau */
+.reveal-delay {
+  transition-delay: 0.2s;
+}
+
+/* Jei JavaScript neveikia – rodome viską iškart */
+.no-js .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* Bendra animacija skydeliams ir galerijai */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Pagrindinio vaizdo tekstas atsiranda įkėlus puslapį */
+.hero-content > * {
+  animation: fadeUp 1.1s var(--ease) both;
+}
+
+.hero-content > *:nth-child(2) { animation-delay: 0.15s; }
+.hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+.hero-content > *:nth-child(4) { animation-delay: 0.45s; }
+
+/* Žmonėms, kurie išjungė animacijas sistemoje */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

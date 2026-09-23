@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="lt" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sodyba „Apuokynė“ – šventės ir poilsis prie tvenkinio</title>
+  <meta name="description" content="Elegantiška Provanso stiliaus sodyba Kėdainių rajone, apie trisdešimt kilometrų nuo Kauno. Vestuvės, gimtadieniai, krikštynos ir ramus poilsis prie tvenkinio.">
+
+  <!-- Šriftai: Bodoni Moda antraštėms, Manrope tekstui -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stiliai suskaidyti pagal paskirtį -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/gallery.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- ============ VIRŠUTINĖ JUOSTA ============ -->
+  <header class="site-header" id="virsus">
+    <div class="container header-inner">
+      <a href="#pradzia" class="wordmark">Apuokynė</a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Pagrindinis meniu">
+        <a href="#apie">Apie sodybą</a>
+        <a href="#erdves">Erdvės</a>
+        <a href="#metu-laikai">Metų laikai</a>
+        <a href="#galerija">Galerija</a>
+        <a href="#kainos">Kainos</a>
+        <a href="#kontaktai">Kontaktai</a>
+      </nav>
+
+      <a href="#uzklausa" class="btn btn-small header-cta">Užklausa</a>
+
+      <!-- Mobilaus meniu mygtukas – tik tekstas -->
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">Meniu</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ PAGRINDINIS VAIZDAS ============ -->
+    <section class="hero" id="pradzia">
+      <!-- Skaidrės: pirmoji rodoma iškart, kitas keičia js/hero.js -->
+      <div class="hero-slides">
+        <img class="hero-slide is-active" src="images/full/namas-nuo-tvenkinio.jpg" alt="Sodybos namas ir kolonų pavėsinė prie tvenkinio vasarą">
+        <img class="hero-slide" src="images/full/lauzaviete-vakaras.jpg" alt="Laužavietė vakare, už jos apšviesta pavėsinė" loading="lazy">
+        <img class="hero-slide" src="images/full/ziema-prieplauka.jpg" alt="Žiemos vakaras, apšviestas lieptas ant užšalusio tvenkinio" loading="lazy">
+        <img class="hero-slide" src="images/full/vasara-terasa-begonijos.jpg" alt="Raudonos begonijos terasoje, saulėta diena prie tvenkinio" loading="lazy">
+      </div>
+      <div class="hero-shade"></div>
+
+      <div class="container hero-content">
+        <p class="hero-kicker">Kėdainių rajone, pusvalandis nuo Kauno</p>
+        <h1 class="hero-title">Sodyba ant<br><em>tvenkinio kranto</em></h1>
+        <p class="hero-lead">Provanso stiliaus namai šventėms ir poilsiui. Išsinuomojus visą sodybą, joje būsite vieninteliai svečiai.</p>
+        <div class="hero-actions">
+          <a href="#uzklausa" class="btn btn-light">Pasitikrinti datą</a>
+          <a href="#erdves" class="btn btn-ghost-light">Apžiūrėti erdves</a>
+        </div>
+      </div>
+
+      <!-- Skaidrių pavadinimai tarnauja ir kaip valdikliai -->
+      <div class="hero-captions" id="heroCaptions">
+        <button class="is-active" data-slide="0">Vasaros diena</button>
+        <button data-slide="1">Vakaras prie laužo</button>
+        <button data-slide="2">Žiema</button>
+        <button data-slide="3">Terasa</button>
+        <span class="hero-progress"><span id="heroProgress"></span></span>
+      </div>
+    </section>
+
+
+    <!-- ============ APIE SODYBĄ ============ -->
+    <section class="section about" id="apie">
+      <div class="container about-grid">
+        <div class="about-text reveal">
+          <p class="eyebrow">Apie sodybą</p>
+          <h2 class="section-title">Elegancija be skubėjimo</h2>
+          <p class="lead">„Apuokynė“ – sodyba su pokylių sale, pirtimi ir sūkurine vonia, įsikūrusi ant tvenkinio kranto. Čia švenčiamos vestuvės, gimtadieniai, krikštynos, šeimos ir įmonių šventės, o darbo dienomis atvažiuojama tiesiog pailsėti.</p>
+          <p>Pirmame aukšte – dvi erdvios salės. Vienoje daug vietos šokiams, garso ir vaizdo technika bei virtuvė, kitoje – elegantiška valgomojo erdvė su židiniu ir vitrininiais langais į tvenkinį. Antrame aukšte svečių laukia aštuoni kambariai su dvidešimt aštuoniomis nakvynės vietomis.</p>
+          <p>Viduje nuotaiką kuria senos medinės sijos, damasto užuolaidos, žvakidės ir prabangios interjero detalės. Lauke – terasos su balustradomis, lieptai, žibintai ir išpuoselėta šešiasdešimties arų teritorija.</p>
+
+          <!-- Pagrindiniai faktai paprastu sąrašu -->
+          <dl class="facts">
+            <div><dt>Šventei</dt><dd>iki keturiasdešimties svečių</dd></div>
+            <div><dt>Nakvynei</dt><dd>aštuoni kambariai, dvidešimt aštuonios vietos</dd></div>
+            <div><dt>Teritorija</dt><dd>šešiasdešimt arų prie tvenkinio</dd></div>
+            <div><dt>Dirbame</dt><dd>visus metus</dd></div>
+          </dl>
+        </div>
+
+        <!-- Dvi persidengiančios nuotraukos -->
+        <div class="about-media">
+          <figure class="about-img-main reveal">
+            <img src="images/full/svetaine-sijos.jpg" alt="Svetainė su senomis medinėmis sijomis ir gobelenu" loading="lazy">
+          </figure>
+          <figure class="about-img-small reveal reveal-delay">
+            <img src="images/thumb/dekoras-zvakides.jpg" alt="Sidabrinės žvakidės ir baltos gėlės prieš veidrodį" loading="lazy">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ ERDVĖS (interaktyvus sąrašas) ============ -->
+    <section class="section spaces" id="erdves">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Erdvės</p>
+          <h2 class="section-title">Pasivaikščiokite po sodybą</h2>
+          <p class="section-intro">Užveskite pelę arba paspauskite ant pavadinimo – nuotrauka pasikeis.</p>
+        </div>
+
+        <div class="spaces-grid">
+          <!-- Didelė nuotrauka, kurią keičia js/spaces.js -->
+          <figure class="spaces-figure reveal">
+            <img id="spaceImage" src="images/full/pokyliu-sale.jpg" alt="Pokylių salė su ilgu stalu">
+            <figcaption id="spaceCaption">Pokylių salė</figcaption>
+          </figure>
+
+          <!-- Kiekvienas punktas nurodo savo nuotrauką per data-image -->
+          <ul class="spaces-list" id="spacesList">
+            <li class="is-active" data-image="images/full/pokyliu-sale.jpg" data-alt="Pokylių salė su ilgu stalu">
+              <button type="button">
+                <span class="space-name">Pokylių salė</span>
+                <span class="space-text">Ilgas stalas iki keturiasdešimties svečių, kolonos, židinys ir langai į tvenkinį.</span>
+              </button>
+            </li>
+            <li data-image="images/full/sale-apvalus-stalas.jpg" data-alt="Apvalus stalas su baltomis kėdėmis prie židinio">
+              <button type="button">
+                <span class="space-name">Baltoji valgomojo erdvė</span>
+                <span class="space-text">Baltos kėdės auksiniais kraštais, gėlių kompozicijos ir lipdiniai.</span>
+              </button>
+            </li>
+            <li data-image="images/full/svetaine-vakaras.jpg" data-alt="Didelė svetainė su baroko sofomis">
+              <button type="button">
+                <span class="space-name">Svetainė</span>
+                <span class="space-text">Baroko sofos, kilimai ir paveikslai – vieta pokalbiams po vakarienės.</span>
+              </button>
+            </li>
+            <li data-image="images/full/kambarys-uzuolaidos.jpg" data-alt="Miegamojo kambario užuolaidos ir lova">
+              <button type="button">
+                <span class="space-name">Miegamieji</span>
+                <span class="space-text">Aštuoni kambariai antrame aukšte, dvidešimt aštuonios vietos nakvynei.</span>
+              </button>
+            </li>
+            <li data-image="images/full/pirtis.jpg" data-alt="Medinė pirtis su akmenų krosnimi">
+              <button type="button">
+                <span class="space-name">Pirtis</span>
+                <span class="space-text">Tradicinė medinė pirtis, o po jos – tiesiai į tvenkinį.</span>
+              </button>
+            </li>
+            <li data-image="images/full/sukurine-vonia.jpg" data-alt="Svečiai sūkurinėje vonioje terasoje">
+              <button type="button">
+                <span class="space-name">Sūkurinė vonia</span>
+                <span class="space-text">Terasoje su vaizdu į tvenkinį, kiemą ir laukus.</span>
+              </button>
+            </li>
+            <li data-image="images/full/ceremonija-arka.jpg" data-alt="Širdies formos gėlių arka prie kolonų pavėsinės">
+              <button type="button">
+                <span class="space-name">Kolonų pavėsinė</span>
+                <span class="space-text">Pavėsinė su židiniu ir staliukais, tinka ceremonijai ar vaišėms lauke.</span>
+              </button>
+            </li>
+            <li data-image="images/full/ruduo-rausvas-dangus.jpg" data-alt="Lieptas su gultais ant tvenkinio">
+              <button type="button">
+                <span class="space-name">Tvenkinys ir lieptas</span>
+                <span class="space-text">Didelis tvenkinys su fontanėliu, lieptas su gultais ir lauko baldais.</span>
+              </button>
+            </li>
+            <li data-image="images/full/lauzaviete-vakaras.jpg" data-alt="Laužavietė su grotelėmis vakare">
+              <button type="button">
+                <span class="space-name">Laužavietė ir grilis</span>
+                <span class="space-text">Griliaus kampelis ant tvenkinio kranto, grotelės, iešmai ir malkos.</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ PROGOS ============ -->
+    <section class="section occasions">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Progos</p>
+          <h2 class="section-title">Kam tinka „Apuokynė“</h2>
+        </div>
+
+        <div class="occasion-row">
+          <article class="occasion reveal">
+            <img src="images/thumb/ceremonija-arka.jpg" alt="Gėlių arka vestuvių ceremonijai" loading="lazy">
+            <div class="occasion-body">
+              <h3>Vestuvės</h3>
+              <p>Speciali vieta ceremonijai ant tvenkinio kranto, pokylis salėje ir nakvynė tame pačiame name.</p>
+            </div>
+          </article>
+          <article class="occasion reveal">
+            <img src="images/thumb/dekoras-zvakides.jpg" alt="Žvakidės ir desertai ant komodos" loading="lazy">
+            <div class="occasion-body">
+              <h3>Gimtadieniai ir jubiliejai</h3>
+              <p>Šokiams skirta salė su garso ir vaizdo technika, o vėliau – pirtis ir kubilas.</p>
+            </div>
+          </article>
+          <article class="occasion reveal">
+            <img src="images/thumb/sale-stalas-svetaine.jpg" alt="Padengtas stalas su baltomis kėdėmis" loading="lazy">
+            <div class="occasion-body">
+              <h3>Krikštynos ir šeimos šventės</h3>
+              <p>Vaikams – žaidimų aikštelė ir sūpynės, suaugusiems – terasa su vaizdu į vandenį.</p>
+            </div>
+          </article>
+          <article class="occasion reveal">
+            <img src="images/thumb/zidinys.jpg" alt="Taurė prie degančio židinio" loading="lazy">
+            <div class="occasion-body">
+              <h3>Ramus poilsis</h3>
+              <p>Darbo dienomis sodyba nuomojama vienai kompanijai – be kaimynų ir be skubėjimo.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ METŲ LAIKAI (skirtukai) ============ -->
+    <section class="section seasons" id="metu-laikai">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Metų laikai</p>
+          <h2 class="section-title">Gera švęsti ir vasarą, ir žiemą</h2>
+        </div>
+
+        <!-- Skirtukų mygtukai -->
+        <div class="season-tabs reveal" role="tablist" id="seasonTabs">
+          <button role="tab" aria-selected="true" data-season="vasara">Vasara</button>
+          <button role="tab" aria-selected="false" data-season="ruduo">Ruduo</button>
+          <button role="tab" aria-selected="false" data-season="ziema">Žiema</button>
+          <button role="tab" aria-selected="false" data-season="vakaras">Vakarai</button>
+        </div>
+
+        <!-- Kiekvienas skydelis: tekstas ir trys nuotraukos -->
+        <div class="season-panel is-active" data-panel="vasara" role="tabpanel">
+          <div class="season-text">
+            <h3>Saulė, vanduo ir žolė po kojomis</h3>
+            <p>Gultai ant liepto, tinklinis ant žolės, krepšinio lenta ir maudynės tvenkinyje. Vakare – grilis ant kranto.</p>
+          </div>
+          <div class="season-photos">
+            <img src="images/thumb/vasara-terasa-begonijos.jpg" alt="Begonijos terasoje saulėtą dieną" loading="lazy">
+            <img src="images/thumb/is-virsaus.jpg" alt="Sodyba ir tvenkinys iš viršaus" loading="lazy">
+            <img src="images/thumb/sukurine-vonia.jpg" alt="Sūkurinė vonia lauke" loading="lazy">
+          </div>
+        </div>
+
+        <div class="season-panel" data-panel="ruduo" role="tabpanel">
+          <div class="season-text">
+            <h3>Rausvi saulėlydžiai virš vandens</h3>
+            <p>Rudenį tvenkinys atspindi dangų, o pavėsinėje prie pušies stovi teleskopas – žvaigždėms stebėti.</p>
+          </div>
+          <div class="season-photos">
+            <img src="images/thumb/ruduo-rausvas-dangus.jpg" alt="Rausvas dangus virš liepto" loading="lazy">
+            <img src="images/thumb/saulelydis-pavesine.jpg" alt="Saulėlydis prie pavėsinės ant kranto" loading="lazy">
+            <img src="images/thumb/pusis-pavesine.jpg" alt="Pušies šaka ir apšviesta pavėsinė" loading="lazy">
+          </div>
+        </div>
+
+        <div class="season-panel" data-panel="ziema" role="tabpanel">
+          <div class="season-text">
+            <h3>Sniegas už lango, židinys viduje</h3>
+            <p>Žiemą salėje kūrenamas židinys, pirtis įkaitinta, o terasoje laukia sniego apklotos balustrados.</p>
+          </div>
+          <div class="season-photos">
+            <img src="images/thumb/ziema-saulelydis.jpg" alt="Žiemos saulėlydis iš terasos" loading="lazy">
+            <img src="images/thumb/ziema-balustrada.jpg" alt="Apsnigta balustrada prie namo" loading="lazy">
+            <img src="images/thumb/ziema-prieplauka.jpg" alt="Apšviestas lieptas žiemą" loading="lazy">
+          </div>
+        </div>
+
+        <div class="season-panel" data-panel="vakaras" role="tabpanel">
+          <div class="season-text">
+            <h3>Kai užsidega žibintai</h3>
+            <p>Šimtai lempučių ant pavėsinės kupolo, girliandos virš liepto ir laužas prie vandens.</p>
+          </div>
+          <div class="season-photos">
+            <img src="images/thumb/pavesine-naktis.jpg" alt="Lemputėmis apšviesta pavėsinė naktį" loading="lazy">
+            <img src="images/thumb/lauzaviete-vakaras.jpg" alt="Laužas prie tvenkinio vakare" loading="lazy">
+            <img src="images/thumb/terasa-vakaras.jpg" alt="Terasa prie švytinčių langų" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ TERITORIJA IR PATOGUMAI ============ -->
+    <section class="estate" aria-label="Teritorija">
+      <div class="estate-bg" style="background-image:url('images/full/is-virsaus-arciau.jpg')"></div>
+      <div class="container estate-inner">
+        <div class="estate-card reveal">
+          <p class="eyebrow">Teritorija</p>
+          <h2 class="section-title">Visa sodyba – tik jūsų kompanijai</h2>
+          <p>Šešiasdešimt arų išpuoselėtos žemės, tvenkinys su fontanėliu, pušys ir laukai aplinkui. Automobilius galima palikti aikštelėje prie pat namo.</p>
+
+          <!-- Patogumai paprastais sąrašais, be ikonų -->
+          <div class="amenities">
+            <div>
+              <h3>Name</h3>
+              <ul>
+                <li>Virtuvė su indaplove</li>
+                <li>Židinys salėje</li>
+                <li>Oro kondicionieriai</li>
+                <li>Garso ir vaizdo technika</li>
+                <li>Bevielis internetas</li>
+                <li>Skalbimo mašina</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Kieme</h3>
+              <ul>
+                <li>Pirtis ir sūkurinė vonia</li>
+                <li>Lieptas su gultais</li>
+                <li>Pavėsinė su židiniu</li>
+                <li>Grilis ir laužavietė</li>
+                <li>Tinklinio aikštelė</li>
+                <li>Vaikų žaidimų aikštelė</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ GALERIJA ============ -->
+    <section class="section gallery" id="galerija">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Galerija</p>
+          <h2 class="section-title">Sodyba nuotraukose</h2>
+        </div>
+
+        <!-- Filtrai: data-filter atitinka kategoriją js/gallery.js faile -->
+        <div class="gallery-filters" id="galleryFilters">
+          <button class="is-active" data-filter="visos">Visos</button>
+          <button data-filter="interjeras">Interjeras</button>
+          <button data-filter="aplinka">Aplinka</button>
+          <button data-filter="vakarai">Vakarai</button>
+          <button data-filter="ziema">Žiema</button>
+        </div>
+
+        <!-- Nuotraukos sugeneruojamos iš js/gallery.js sąrašo -->
+        <div class="gallery-grid" id="galleryGrid"></div>
+
+        <!-- Rodomas tik tada, kai dalis nuotraukų paslėpta -->
+        <div class="gallery-more">
+          <button class="btn" id="galleryMore" type="button">Rodyti visas nuotraukas</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Didelės peržiūros langas -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lbClose">Uždaryti</button>
+      <button class="lightbox-nav lightbox-prev" id="lbPrev">Atgal</button>
+      <figure class="lightbox-figure">
+        <img id="lbImage" src="" alt="">
+        <figcaption id="lbCaption"></figcaption>
+      </figure>
+      <button class="lightbox-nav lightbox-next" id="lbNext">Toliau</button>
+    </div>
+
+
+    <!-- ============ KAINOS IR SKAIČIUOKLĖ ============ -->
+    <section class="section prices" id="kainos">
+      <div class="container prices-grid">
+        <div class="prices-info reveal">
+          <p class="eyebrow">Kainos</p>
+          <h2 class="section-title">Nuomos kainos</h2>
+
+          <!-- Kainų lentelė -->
+          <table class="price-table">
+            <tbody>
+              <tr><th>Visa sodyba sezono metu</th><td>500–700 € parai</td></tr>
+              <tr><th>Visa sodyba ne sezono metu</th><td>400–500 € parai</td></tr>
+              <tr><th>Poilsiui iki dešimties žmonių</th><td>nuo 150 € parai</td></tr>
+              <tr><th>Pirties nuoma</th><td>80 €</td></tr>
+              <tr><th>Kubilo nuoma</th><td>120 €</td></tr>
+              <tr><th>Depozitas</th><td>100 €</td></tr>
+            </tbody>
+          </table>
+
+          <p class="note">Nuo pirmadienio iki ketvirtadienio kainos palankesnės. Poilsio kaina galioja darbo dienomis, nuomojant dviem paroms ir ilgiau. Šventinėmis dienomis kainos sutartinės.</p>
+        </div>
+
+        <!-- Skaičiuoklė: logika js/calculator.js -->
+        <form class="calculator reveal" id="calculator" onsubmit="return false">
+          <h3>Apytikslė kaina</h3>
+
+          <fieldset class="choice">
+            <legend>Tikslas</legend>
+            <label><input type="radio" name="purpose" value="svente" checked> Šventė</label>
+            <label><input type="radio" name="purpose" value="poilsis"> Poilsis</label>
+          </fieldset>
+
+          <fieldset class="choice" id="seasonChoice">
+            <legend>Laikotarpis</legend>
+            <label><input type="radio" name="season" value="sezonas" checked> Sezono metu</label>
+            <label><input type="radio" name="season" value="nesezonas"> Ne sezono metu</label>
+          </fieldset>
+
+          <div class="stepper">
+            <span class="stepper-label">Parų skaičius</span>
+            <div class="stepper-controls">
+              <button type="button" id="nightsMinus" aria-label="Mažiau parų">−</button>
+              <output id="nightsValue">1</output>
+              <button type="button" id="nightsPlus" aria-label="Daugiau parų">+</button>
+            </div>
+          </div>
+
+          <fieldset class="extras">
+            <legend>Papildomai</legend>
+            <label><input type="checkbox" name="pirtis"> Pirtis</label>
+            <label><input type="checkbox" name="kubilas"> Kubilas</label>
+          </fieldset>
+
+          <div class="calc-result">
+            <span>Preliminari suma</span>
+            <strong id="calcTotal">500–700 €</strong>
+            <small id="calcHint">Tiksli kaina priklauso nuo datos ir svečių skaičiaus.</small>
+          </div>
+
+          <button type="button" class="btn" id="calcToForm">Perkelti į užklausą</button>
+        </form>
+      </div>
+    </section>
+
+
+    <!-- ============ UŽKLAUSA ============ -->
+    <section class="section inquiry" id="uzklausa">
+      <div class="container inquiry-grid">
+        <div class="inquiry-intro reveal">
+          <p class="eyebrow">Užklausa</p>
+          <h2 class="section-title">Parašykite, kokią datą planuojate</h2>
+          <p>Užpildžius formą atsidarys jūsų el. pašto programa su paruoštu laišku. Atsakysime ir patvirtinsime, ar data laisva.</p>
+
+          <!-- Tvarkos taisyklės -->
+          <dl class="rules">
+            <div><dt>Atvykimas</dt><dd>nuo 15:00</dd></div>
+            <div><dt>Išvykimas</dt><dd>iki 12:00, iš anksto sutarus – iki 14:00</dd></div>
+            <div><dt>Rūkymas</dt><dd>patalpose nerūkoma</dd></div>
+            <div><dt>Gyvūnai</dt><dd>galima, už papildomą mokestį</dd></div>
+            <div><dt>Vakarėliai</dt><dd>atskiru susitarimu</dd></div>
+            <div><dt>Apmokėjimas</dt><dd>pavedimu arba grynaisiais, įmonėms išrašome sąskaitas</dd></div>
+          </dl>
+        </div>
+
+        <!-- Forma: logika js/inquiry.js -->
+        <form class="inquiry-form reveal" id="inquiryForm" novalidate>
+          <div class="field-row">
+            <label class="field">
+              <span>Vardas</span>
+              <input type="text" name="vardas" required autocomplete="name">
+            </label>
+            <label class="field">
+              <span>Telefonas</span>
+              <input type="tel" name="telefonas" required autocomplete="tel">
+            </label>
+          </div>
+
+          <div class="field-row">
+            <label class="field">
+              <span>Atvykimo data</span>
+              <input type="date" name="atvykimas" required>
+            </label>
+            <label class="field">
+              <span>Išvykimo data</span>
+              <input type="date" name="isvykimas" required>
+            </label>
+          </div>
+
+          <div class="field-row">
+            <label class="field">
+              <span>Proga</span>
+              <select name="proga">
+                <option>Vestuvės</option>
+                <option>Gimtadienis</option>
+                <option>Krikštynos</option>
+                <option>Įmonės šventė</option>
+                <option>Poilsis</option>
+                <option>Kita</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Svečių skaičius</span>
+              <input type="number" name="sveciai" min="1" max="40" inputmode="numeric">
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Žinutė</span>
+            <textarea name="zinute" rows="4" id="inquiryMessage" placeholder="Papasakokite apie savo šventę"></textarea>
+          </label>
+
+          <p class="form-error" id="formError" hidden>Užpildykite vardą, telefoną ir abi datas.</p>
+          <button type="submit" class="btn">Siųsti užklausą</button>
+          <p class="form-success" id="formSuccess" hidden>Laiškas paruoštas jūsų el. pašto programoje. Jei ji neatsidarė, rašykite adresu lina.apuokiene@gmail.com</p>
+        </form>
+      </div>
+    </section>
+
+
+    <!-- ============ KONTAKTAI IR ŽEMĖLAPIS ============ -->
+    <section class="section contacts" id="kontaktai">
+      <div class="container contacts-grid">
+        <div class="contacts-info reveal">
+          <p class="eyebrow">Kontaktai</p>
+          <h2 class="section-title">Kaip mus rasti</h2>
+
+          <div class="contact-block">
+            <h3>Adresas</h3>
+            <p>Kriaušupio g. 17, Bajėnai I,<br>Kėdainių rajonas</p>
+          </div>
+          <div class="contact-block">
+            <h3>Telefonas</h3>
+            <p><a href="tel:+37067065114">+370 670 65114</a></p>
+          </div>
+          <div class="contact-block">
+            <h3>El. paštas</h3>
+            <p><a href="mailto:lina.apuokiene@gmail.com">lina.apuokiene@gmail.com</a></p>
+          </div>
+          <div class="contact-block">
+            <h3>Facebook</h3>
+            <p><a href="https://www.facebook.com/profile.php?id=100057180171630" target="_blank" rel="noopener">Sodyba Apuokynė</a></p>
+          </div>
+
+          <!-- Atstumai -->
+          <ul class="distances">
+            <li><span>Kaunas</span><span>30 km</span></li>
+            <li><span>Kėdainiai</span><span>20 km</span></li>
+            <li><span>Vilnius</span><span>120 km</span></li>
+            <li><span>Nevėžio upė</span><span>~3 km</span></li>
+            <li><span>Panevėžiuko ežeras</span><span>~3,4 km</span></li>
+          </ul>
+          <p class="note">Kalbame lietuviškai ir rusiškai.</p>
+        </div>
+
+        <!-- Google žemėlapis pagal koordinates -->
+        <div class="map-wrap reveal">
+          <iframe
+            title="Sodybos „Apuokynė“ vieta žemėlapyje"
+            src="https://maps.google.com/maps?q=55.167828,23.767555&z=13&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <a class="map-link" href="https://www.google.com/maps/dir/?api=1&destination=55.167828,23.767555" target="_blank" rel="noopener">Maršrutas „Google Maps“</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ============ APAČIA ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="wordmark wordmark-footer">Apuokynė</p>
+      <p>Šventės, poilsis, pramogos</p>
+      <p class="footer-copy">© <span id="year"></span> Sodyba „Apuokynė“. Visos teisės saugomos.</p>
+    </div>
+  </footer>
+
+  <!-- Mobili juosta apačioje: skambinti ir užklausa -->
+  <div class="mobile-bar" id="mobileBar">
+    <a href="tel:+37067065114">Skambinti</a>
+    <a href="#uzklausa">Užklausa</a>
+  </div>
+
+
+  <!-- Skriptai, kiekvienas atsakingas už vieną dalį -->
+  <script src="js/main.js" defer></script>
+  <script src="js/hero.js" defer></script>
+  <script src="js/spaces.js" defer></script>
+  <script src="js/seasons.js" defer></script>
+  <script src="js/gallery.js" defer></script>
+  <script src="js/calculator.js" defer></script>
+  <script src="js/inquiry.js" defer></script>
+</body>
+</html>
