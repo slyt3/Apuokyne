@@ -26,14 +26,24 @@
   height: 76px;
 }
 
-.wordmark {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 400;
-  font-style: italic;
-  text-decoration: none;
-  letter-spacing: 0.01em;
+/* Logotipas antraštėje */
+.brand {
+  display: block;
   margin-right: auto;
+}
+
+.brand img {
+  height: 42px;
+  width: auto;
+  /* Ant nuotraukos logotipas nudažomas baltai */
+  filter: brightness(0) invert(1);
+  transition: filter 0.4s var(--ease);
+}
+
+/* Nuslinkus arba atidarius meniu – originalus juodas */
+.site-header.is-scrolled .brand img,
+body.menu-open .brand img {
+  filter: none;
 }
 
 .main-nav {
@@ -100,26 +110,25 @@
   align-items: flex-end;
 }
 
-.hero-slides {
-  position: absolute;
-  inset: 0;
-}
-
-/* Visos skaidrės viena ant kitos, matoma tik aktyvi */
-.hero-slide {
+/* Pagrindinė nuotrauka per visą ekraną.
+   Įkėlus puslapį ji lėtai priartėja atgal į normalų dydį. */
+.hero-image {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0;
-  transform: scale(1.08);
-  transition: opacity 1.6s var(--ease), transform 9s linear;
+  object-position: center 60%;
+  animation: heroSettle 10s var(--ease) both;
 }
 
-.hero-slide.is-active {
-  opacity: 1;
-  transform: scale(1);
+@keyframes heroSettle {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 /* Tamsinimas apačioje, kad tekstas būtų įskaitomas */
@@ -165,47 +174,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-}
-
-/* Skaidrių pavadinimai apačioje dešinėje */
-.hero-captions {
-  position: absolute;
-  right: var(--gutter);
-  bottom: 36px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px 22px;
-  max-width: calc(100% - 2 * var(--gutter));
-}
-
-.hero-captions button {
-  background: none;
-  border: 0;
-  padding: 4px 0;
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 0.85rem;
-  transition: color 0.3s;
-}
-
-.hero-captions button:hover,
-.hero-captions button.is-active {
-  color: #fff;
-}
-
-/* Plona juostelė rodo, kiek liko iki kitos skaidrės */
-.hero-progress {
-  width: 90px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.3);
-  overflow: hidden;
-}
-
-.hero-progress span {
-  display: block;
-  height: 100%;
-  width: 0;
-  background: #fff;
 }
 
 /* ---------- Apie sodybą ---------- */
@@ -289,10 +257,12 @@
   text-align: center;
 }
 
-.wordmark-footer {
-  color: #fff;
-  font-size: 2.4rem;
-  margin: 0 0 0.2em;
+/* Baltas logotipas tamsiame fone */
+.footer-logo {
+  height: 64px;
+  width: auto;
+  margin: 0 auto 18px;
+  filter: brightness(0) invert(1);
 }
 
 .footer-copy {
@@ -400,16 +370,6 @@
 }
 
 @media (max-width: 560px) {
-  .hero-captions {
-    left: var(--gutter);
-    right: auto;
-    gap: 4px 16px;
-  }
-
-  .hero-progress {
-    display: none;
-  }
-
   .facts div {
     grid-template-columns: 1fr;
     gap: 2px;

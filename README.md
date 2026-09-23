@@ -14,7 +14,6 @@ css/
   animations.css      įsirodymo efektai
 js/
   main.js             meniu, antraštė slenkant, efektai
-  hero.js             pagrindinio vaizdo skaidrės
   spaces.js           erdvių sąrašas su keičiama nuotrauka
   seasons.js          metų laikų skirtukai
   gallery.js          galerijos nuotraukų sąrašas ir filtrai
@@ -23,6 +22,7 @@ js/
 images/
   full/               didelės nuotraukos
   thumb/              sumažintos nuotraukos galerijai
+  logo/               logotipas, skirtuko piktograma ir originalas
 Nuotraukos/           originalios nuotraukos (svetainė jų nenaudoja)
 ```
 

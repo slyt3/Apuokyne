@@ -11,6 +11,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 
+  <!-- Piktograma naršyklės skirtuke ir telefono pradžios ekrane -->
+  <link rel="icon" type="image/png" href="images/logo/favicon.png">
+  <link rel="apple-touch-icon" href="images/logo/apple-touch-icon.png">
+
   <!-- Stiliai suskaidyti pagal paskirtį -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
@@ -23,7 +27,10 @@
   <!-- ============ VIRŠUTINĖ JUOSTA ============ -->
   <header class="site-header" id="virsus">
     <div class="container header-inner">
-      <a href="#pradzia" class="wordmark">Apuokynė</a>
+      <!-- Logotipas: ant nuotraukos baltas, nuslinkus – juodas (css/layout.css) -->
+      <a href="#pradzia" class="brand">
+        <img src="images/logo/logo.png" alt="Sodyba „Apuokynė“" width="575" height="160">
+      </a>
 
       <nav class="main-nav" id="mainNav" aria-label="Pagrindinis meniu">
         <a href="#apie">Apie sodybą</a>
@@ -45,13 +52,9 @@
 
     <!-- ============ PAGRINDINIS VAIZDAS ============ -->
     <section class="hero" id="pradzia">
-      <!-- Skaidrės: pirmoji rodoma iškart, kitas keičia js/hero.js -->
-      <div class="hero-slides">
-        <img class="hero-slide is-active" src="images/full/namas-nuo-tvenkinio.jpg" alt="Sodybos namas ir kolonų pavėsinė prie tvenkinio vasarą">
-        <img class="hero-slide" src="images/full/lauzaviete-vakaras.jpg" alt="Laužavietė vakare, už jos apšviesta pavėsinė" loading="lazy">
-        <img class="hero-slide" src="images/full/ziema-prieplauka.jpg" alt="Žiemos vakaras, apšviestas lieptas ant užšalusio tvenkinio" loading="lazy">
-        <img class="hero-slide" src="images/full/vasara-terasa-begonijos.jpg" alt="Raudonos begonijos terasoje, saulėta diena prie tvenkinio" loading="lazy">
-      </div>
+      <!-- Pagrindinė nuotrauka (didžiausios raiškos, kad nebūtų neryški) -->
+      <img class="hero-image" src="images/full/pagrindine.jpg" alt="Raudonos begonijos terasoje, už jų tvenkinys ir sodybos namas">
+
       <div class="hero-shade"></div>
 
       <div class="container hero-content">
@@ -62,15 +65,6 @@
           <a href="#uzklausa" class="btn btn-light">Pasitikrinti datą</a>
           <a href="#erdves" class="btn btn-ghost-light">Apžiūrėti erdves</a>
         </div>
-      </div>
-
-      <!-- Skaidrių pavadinimai tarnauja ir kaip valdikliai -->
-      <div class="hero-captions" id="heroCaptions">
-        <button class="is-active" data-slide="0">Vasaros diena</button>
-        <button data-slide="1">Vakaras prie laužo</button>
-        <button data-slide="2">Žiema</button>
-        <button data-slide="3">Terasa</button>
-        <span class="hero-progress"><span id="heroProgress"></span></span>
       </div>
     </section>
 
@@ -565,7 +559,7 @@
   <!-- ============ APAČIA ============ -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p class="wordmark wordmark-footer">Apuokynė</p>
+      <img class="footer-logo" src="images/logo/logo.png" alt="Sodyba „Apuokynė“" width="575" height="160" loading="lazy">
       <p>Šventės, poilsis, pramogos</p>
       <p class="footer-copy">© <span id="year"></span> Sodyba „Apuokynė“. Visos teisės saugomos.</p>
     </div>
@@ -580,7 +574,6 @@
 
   <!-- Skriptai, kiekvienas atsakingas už vieną dalį -->
   <script src="js/main.js" defer></script>
-  <script src="js/hero.js" defer></script>
   <script src="js/spaces.js" defer></script>
   <script src="js/seasons.js" defer></script>
   <script src="js/gallery.js" defer></script>
